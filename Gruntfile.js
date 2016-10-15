@@ -4,24 +4,64 @@
 
 module.exports = function(grunt) {
 
-    // Project configuration.
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        uglify: {
+
+        watch: {
+            scripts: {
+                files: '**/*.js',
+                tasks: ['jshint', 'browserify', 'copy'],
+                options: {
+                    interrupt: true,
+                    dateFormat: function(time) {
+                        grunt.log.writeln('The watch finished in ' + time + 'ms at' + (new Date()).toString());
+                        grunt.log.writeln('Waiting for more changes...');
+                    }
+                }
+            }
+            // browserify: {
+            //     files: ['src/scripts/**/*.js'],
+            //     tasks: ['']
+            // }
+        },
+
+        copy: {
+            main: {
+                expand: true,
+                src: 'src/css/*.css',
+                dest: 'build/css/',
+                flatten: true
+            }
+        },
+
+        browserify: {
+            dist: {
+                options: {
+                    transform: [['babelify', {presets: ['es2015', 'react']}]]
+                },
+                src: ['src/js/app.js'],
+                dest: 'build/js/app.js'
+            }
+        },
+
+        concat_css: {
             options: {
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+                // Task-specific options go here.
             },
-            build: {
-                src: 'src/<%= pkg.name %>.js',
-                dest: 'build/<%= pkg.name %>.min.js'
+            all: {
+                src: ["src/**/*.css"],
+                dest: "build/css/app.css"
             }
         }
+
     });
 
-    // Load the plugin that provides the "uglify" task.
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-browserify');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-concat-css');
 
-    // Default task(s).
-    grunt.registerTask('default', ['uglify']);
+    grunt.registerTask('default', ['browserify', 'concat_css']);
 
 };
