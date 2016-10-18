@@ -53,6 +53,16 @@ module.exports = function(grunt) {
                 src: ["src/**/*.css"],
                 dest: "build/css/app.css"
             }
+        },
+
+        concat: {
+            options: {
+                separator: ';'
+            },
+            dist: {
+                src: ['src/js/vendor/*.js', 'build/js/*.js'],
+                dest: 'build/js/app.js',
+            }
         }
 
     });
@@ -61,7 +71,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-concat-css');
+    grunt.loadNpmTasks('grunt-contrib-concat');
 
-    grunt.registerTask('default', ['browserify', 'concat_css']);
+
+    grunt.registerTask('default', ['browserify', 'concat_css', 'concat']);
 
 };

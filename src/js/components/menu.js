@@ -2,29 +2,6 @@
 
 import React from 'react';
 
-var ImgContainer = React.createClass({
-    render: function () {
-        return (
-            <img src="res/image/4P8A4958_edited.jpg" className="profile-pic"></img>
-        );
-    }
-});
-
-var MenuItems = React.createClass({
-    render: function () {
-        return (
-            <ul className="nav option-set scroll-link">
-                <li className="active"><a href="#home"><i className="fa fa-coffee"></i> Home</a></li>
-                <li className="">
-                    <a href="#portfolio"><i className="fa fa-camera"></i> Portfolio</a></li>
-                <li className="">
-                    <a href="#about"><i className="fa fa-user"></i> About</a></li>
-                <li className="">
-                    <a href="#contact"><i className="fa fa-envelope"></i> Contact</a></li>
-            </ul>
-        );
-    }
-});
 
 var Menu = React.createClass({
     toggleMenu(el, e) {
@@ -32,29 +9,45 @@ var Menu = React.createClass({
         $('.nav.option-set').slideToggle(150);
     },
 
-    handleResize: function(e) {
+    handleResize: function (e) {
         $('.nav.option-set').removeAttr("style");
     },
 
-    componentDidMount: function() {
+    componentDidMount: function () {
         window.addEventListener('resize', this.handleResize);
     },
 
-    componentWillUnmount: function() {
+
+    componentWillUnmount: function () {
         window.removeEventListener('resize', this.handleResize);
     },
 
 
     render() {
         return (
-            <div className="navbar affix main-trend-navbar">
-                <div className="navbar-inner">
-                    <ImgContainer></ImgContainer>
-                    <a href="#" className="small-nav-toggle" onClick={this.toggleMenu} ><i className="fa fa-bars"></i></a>
-                    <div className="clearBoth"></div>
-                    <MenuItems></MenuItems>
+            <header className="navbar navbar-transparent navbar-fixed-top darken minified">
+                <div className="container">
+                    <div className="navbar-header">
+                        <button type="button" className="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target=".navbar-collapse">
+                            <span className="icon-bar"></span>
+                            <span className="icon-bar"></span>
+                            <span className="icon-bar"></span>
+                        </button>
+                    </div>
+                    <nav id="nav" className="navbar-collapse collapse" role="navigation">
+                        <ul className="nav navbar-nav">
+                            <li className={this.props.hash.indexOf('home') > 0 ? "active" : ""}><a href="#home">Home</a></li>
+                            <li className="hide">
+                                <a href="#portfolio">Portfolio</a></li>
+                            <li className={this.props.hash.indexOf('about') > 0 ? "active" : ""}>
+                                <a href="#about">About</a></li>
+                            <li className={this.props.hash.indexOf('contact') > 0 ? "active" : ""}>
+                                <a href="#contact">Contact</a></li>
+                        </ul>
+                    </nav>
                 </div>
-            </div>
+            </header>
         )
     }
 });
