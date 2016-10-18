@@ -9,7 +9,7 @@ var ImgContainer = React.createClass({
     render: function () {
         return (
             <section>
-                <img src="res/image/4P8A4958_edited.jpg" className="profile-pic img-center img-responsive"></img>
+                <img src="/build/res/image/4P8A4958_edited.jpg" className="profile-pic img-center img-responsive"></img>
                 <div className="name-title">
                     <h2>Dominic</h2>
                     <h5>JS/Node Developer</h5>
@@ -47,7 +47,7 @@ var SelfQuote = React.createClass({
                     Dolor Quisque et elit aliquam vitae habitant.
                 </p>
                 <p className="text-right">
-                    <img src="images/signature.png" alt="signature"></img>
+                    <img src="build/res/image/signature.png" alt="signature"></img>
                 </p>
             </div>
         );

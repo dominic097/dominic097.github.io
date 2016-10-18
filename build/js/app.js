@@ -28441,7 +28441,7 @@ var ImgContainer = _react2.default.createClass({
         return _react2.default.createElement(
             "section",
             null,
-            _react2.default.createElement("img", { src: "res/image/4P8A4958_edited.jpg", className: "profile-pic img-center img-responsive" }),
+            _react2.default.createElement("img", { src: "/build/res/image/4P8A4958_edited.jpg", className: "profile-pic img-center img-responsive" }),
             _react2.default.createElement(
                 "div",
                 { className: "name-title" },
@@ -28509,7 +28509,7 @@ var SelfQuote = _react2.default.createClass({
             _react2.default.createElement(
                 "p",
                 { className: "text-right" },
-                _react2.default.createElement("img", { src: "images/signature.png", alt: "signature" })
+                _react2.default.createElement("img", { src: "build/res/image/signature.png", alt: "signature" })
             )
         );
     }
