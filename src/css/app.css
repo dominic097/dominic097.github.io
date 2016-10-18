@@ -92,6 +92,10 @@ blockquote {
 }
 
 .section-title {
+    margin-top: 5%;
+}
+
+.quote p{
     margin-top: 10%;
 }
 

@@ -28468,11 +28468,6 @@ var AboutTag = _react2.default.createClass({
                 "div",
                 { className: "section-title text-center" },
                 _react2.default.createElement(
-                    "div",
-                    null,
-                    _react2.default.createElement("span", { className: "fa fa-user fa-2x" })
-                ),
-                _react2.default.createElement(
                     "h1",
                     null,
                     "About ",
@@ -28493,7 +28488,7 @@ var SelfQuote = _react2.default.createClass({
     render: function render() {
         return _react2.default.createElement(
             "div",
-            { className: "col-md-4 " },
+            { className: "col-md-4 quote" },
             _react2.default.createElement(
                 "p",
                 { className: "quoteline" },
@@ -28662,7 +28657,7 @@ var About = _react2.default.createClass({
             { id: "about", className: "section-content bg1" },
             _react2.default.createElement(
                 "section",
-                { className: "container" },
+                { className: "container-fluid" },
                 _react2.default.createElement(AboutTag, null),
                 _react2.default.createElement(
                     "section",

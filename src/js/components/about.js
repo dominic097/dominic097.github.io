@@ -23,9 +23,6 @@ var AboutTag = React.createClass({
     render() {
         return (<div className="row">
             <div className="section-title text-center">
-                <div>
-                    <span className="fa fa-user fa-2x"></span>
-                </div>
                 <h1>About <span>Me</span></h1>
             </div>
         </div>);
@@ -35,7 +32,7 @@ var AboutTag = React.createClass({
 var SelfQuote = React.createClass({
     render: function () {
         return (
-            <div className="col-md-4 ">
+            <div className="col-md-4 quote">
                 <p className="quoteline">
                     Be who you are and say what you feel, because those who mind don't matter, and those who matter
                     don't mind.
@@ -110,7 +107,7 @@ var About = React.createClass({
     render() {
         return (
             <section id="about" className="section-content bg1">
-                <section className="container">
+                <section className="container-fluid">
                     <AboutTag></AboutTag>
                     <section className="row aboutContent">
                         <section className="col-md-4 text-center ">
