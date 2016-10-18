@@ -8,7 +8,7 @@ import React from 'react';
 var ImgContainer = React.createClass({
     render: function () {
         return (
-            <section>
+            <section className="imgContainer">
                 <img src="/build/res/image/4P8A4958_edited.jpg" className="profile-pic img-center img-responsive"></img>
                 <div className="name-title">
                     <h2>Dominic</h2>
@@ -22,7 +22,10 @@ var ImgContainer = React.createClass({
 var AboutTag = React.createClass({
     render() {
         return (<div className="row">
-            <div className="section-title item_bottom item_center text-center">
+            <div className="section-title text-center">
+                <div>
+                    <span className="fa fa-user fa-2x"></span>
+                </div>
                 <h1>About <span>Me</span></h1>
             </div>
         </div>);
@@ -32,7 +35,7 @@ var AboutTag = React.createClass({
 var SelfQuote = React.createClass({
     render: function () {
         return (
-            <div className="col-md-4 col-md-4 item_center item_bottom">
+            <div className="col-md-4 ">
                 <p className="quoteline">
                     Be who you are and say what you feel, because those who mind don't matter, and those who matter
                     don't mind.
@@ -57,7 +60,7 @@ var SelfQuote = React.createClass({
 var BioSummary = React.createClass({
     render: function () {
         return (
-            <div className="col-md-4 item_bottom">
+            <div className="col-md-4 ">
                 <ul className="fa-ul">
                     <li><i className="fa fa-li fa-calendar"></i><strong>Birthdate</strong> : 02/09/1982</li>
                     <li><i className="fa fa-li fa-mobile"></i><strong>Phone</strong> : +1 343-234-4343</li>
@@ -106,11 +109,11 @@ var BioSummary = React.createClass({
 var About = React.createClass({
     render() {
         return (
-            <section id="about" className="container bg1">
-                <section className="row">
+            <section id="about" className="section-content bg1">
+                <section className="container">
                     <AboutTag></AboutTag>
-                    <section className="row">
-                        <section className="col-md-4 text-center item_bottom">
+                    <section className="row aboutContent">
+                        <section className="col-md-4 text-center ">
                             <ImgContainer></ImgContainer>
                         </section>
                         <SelfQuote></SelfQuote>

@@ -9,23 +9,15 @@ var Menu = React.createClass({
         $('.nav.option-set').slideToggle(150);
     },
 
-    handleResize: function (e) {
-        $('.nav.option-set').removeAttr("style");
+    componentDidMount() {
+        $(".nav a").on("click", function() {
+            $("#nav").removeClass("in").addClass("collapse")
+        });
     },
-
-    componentDidMount: function () {
-        window.addEventListener('resize', this.handleResize);
-    },
-
-
-    componentWillUnmount: function () {
-        window.removeEventListener('resize', this.handleResize);
-    },
-
 
     render() {
         return (
-            <header className="navbar navbar-transparent navbar-fixed-top darken minified">
+            <header className="navbar navbar-transparent navbar-fixed-top darken minified col-md-12">
                 <div className="container">
                     <div className="navbar-header">
                         <button type="button" className="navbar-toggle collapsed" data-toggle="collapse"

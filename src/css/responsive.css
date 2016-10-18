@@ -87,7 +87,7 @@
 
 @media (max-width: 1024px) {
     .item_top {
-        top: 0;
+        /*top: 0;*/
         opacity: 1;
     }
     .item_left {
@@ -99,7 +99,7 @@
         opacity: 1;
     }
     .item_bottom {
-        bottom: 0;
+        /*bottom: 0;*/
         opacity: 1;
     }
     .item_fade_in {

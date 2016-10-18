@@ -28388,11 +28388,11 @@ var App = _react2.default.createClass({
     render: function render() {
         return _react2.default.createElement(
             'section',
-            { id: 'app-react', className: 'row' },
+            { id: 'app-react', className: 'container-fluid' },
             _react2.default.createElement(Menu, { hash: this.props.location.hash }),
             _react2.default.createElement(
                 'section',
-                { className: 'container-fluid appBodyWrapper' },
+                { className: 'row appBodyWrapper' },
                 function (_hash) {
                     switch (_hash) {
                         case "#home":
@@ -28407,8 +28407,6 @@ var App = _react2.default.createClass({
         );
     }
 });
-
-// ReactDOM.render(<App></App>, document.getElementById('app'));
 
 _reactDom2.default.render(_react2.default.createElement(
     _reactRouter.Router,
@@ -28440,7 +28438,7 @@ var ImgContainer = _react2.default.createClass({
     render: function render() {
         return _react2.default.createElement(
             "section",
-            null,
+            { className: "imgContainer" },
             _react2.default.createElement("img", { src: "/build/res/image/4P8A4958_edited.jpg", className: "profile-pic img-center img-responsive" }),
             _react2.default.createElement(
                 "div",
@@ -28468,7 +28466,12 @@ var AboutTag = _react2.default.createClass({
             { className: "row" },
             _react2.default.createElement(
                 "div",
-                { className: "section-title item_bottom item_center text-center" },
+                { className: "section-title text-center" },
+                _react2.default.createElement(
+                    "div",
+                    null,
+                    _react2.default.createElement("span", { className: "fa fa-user fa-2x" })
+                ),
                 _react2.default.createElement(
                     "h1",
                     null,
@@ -28490,7 +28493,7 @@ var SelfQuote = _react2.default.createClass({
     render: function render() {
         return _react2.default.createElement(
             "div",
-            { className: "col-md-4 col-md-4 item_center item_bottom" },
+            { className: "col-md-4 " },
             _react2.default.createElement(
                 "p",
                 { className: "quoteline" },
@@ -28521,7 +28524,7 @@ var BioSummary = _react2.default.createClass({
     render: function render() {
         return _react2.default.createElement(
             "div",
-            { className: "col-md-4 item_bottom" },
+            { className: "col-md-4 " },
             _react2.default.createElement(
                 "ul",
                 { className: "fa-ul" },
@@ -28656,17 +28659,17 @@ var About = _react2.default.createClass({
     render: function render() {
         return _react2.default.createElement(
             "section",
-            { id: "about", className: "container bg1" },
+            { id: "about", className: "section-content bg1" },
             _react2.default.createElement(
                 "section",
-                { className: "row" },
+                { className: "container" },
                 _react2.default.createElement(AboutTag, null),
                 _react2.default.createElement(
                     "section",
-                    { className: "row" },
+                    { className: "row aboutContent" },
                     _react2.default.createElement(
                         "section",
-                        { className: "col-md-4 text-center item_bottom" },
+                        { className: "col-md-4 text-center " },
                         _react2.default.createElement(ImgContainer, null)
                     ),
                     _react2.default.createElement(SelfQuote, null),
@@ -28762,24 +28765,15 @@ var Menu = _react2.default.createClass({
         e.preventDefault();
         $('.nav.option-set').slideToggle(150);
     },
-
-
-    handleResize: function handleResize(e) {
-        $('.nav.option-set').removeAttr("style");
-    },
-
     componentDidMount: function componentDidMount() {
-        window.addEventListener('resize', this.handleResize);
+        $(".nav a").on("click", function () {
+            $("#nav").removeClass("in").addClass("collapse");
+        });
     },
-
-    componentWillUnmount: function componentWillUnmount() {
-        window.removeEventListener('resize', this.handleResize);
-    },
-
     render: function render() {
         return _react2.default.createElement(
             'header',
-            { className: 'navbar navbar-transparent navbar-fixed-top darken minified' },
+            { className: 'navbar navbar-transparent navbar-fixed-top darken minified col-md-12' },
             _react2.default.createElement(
                 'div',
                 { className: 'container' },

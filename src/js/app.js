@@ -16,9 +16,9 @@ const About = require('./components/about');
 const App = React.createClass({
     render() {
         return (
-            <section id="app-react" className="row">
+            <section id="app-react" className="container-fluid">
                 <Menu hash={this.props.location.hash}></Menu>
-                <section className="container-fluid appBodyWrapper">
+                <section className="row appBodyWrapper">
                     {(function(_hash) {
                        switch (_hash) {
                             case "#home":
@@ -35,7 +35,6 @@ const App = React.createClass({
     }
 });
 
-// ReactDOM.render(<App></App>, document.getElementById('app'));
 
 ReactDOM.render((
     <Router history={browserHistory}>
